@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour {
     public bool sprinting = true, rolling;
     public int jumps, numJumps = 2;
     public float jumpSpeed = 8f;
+    public int facing = 1;
 
     // Use this for initialization
     void Start() {
@@ -22,6 +23,9 @@ public class PlayerMovement : MonoBehaviour {
         if (player.physics.isTouchingGround) {
             jumps = 0;
         }
+
+        float determiner = MoveSpeed != 0 ? MoveSpeed : player.physics.velocity.x;
+        facing = determiner > 0 ? 1 : -1;
     }
 
     // Acceleration due to user input
@@ -29,6 +33,10 @@ public class PlayerMovement : MonoBehaviour {
         get {
             return baseSpeed * player.controls.XInput * (sprinting ? sprintMult : 1);
         }
+    }
+
+    public Vector2 GetRollVelocity() {
+        return Vector2.zero;
     }
     
     public string GetWalkingState() {

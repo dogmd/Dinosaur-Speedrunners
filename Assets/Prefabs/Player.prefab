@@ -387,7 +387,7 @@ MonoBehaviour:
     m_SingletonActionBindings:
     - m_Name: 
       m_Id: 82566cab-1780-46e1-ab97-0b4c58f286c4
-      m_Path: <Keyboard>/e
+      m_Path: <Keyboard>/leftShift
       m_Interactions: 
       m_Processors: 
       m_Groups: 

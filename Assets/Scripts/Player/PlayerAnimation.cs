@@ -19,8 +19,8 @@ public class PlayerAnimation : MonoBehaviour {
     void Update() {
         // Flip character based on velocity / input
         float MoveSpeed = player.movement.MoveSpeed;
-        float determiner = MoveSpeed != 0 ? MoveSpeed : player.physics.velocity.x;
-        transform.parent.localScale = new Vector2(determiner > 0 ? 1 : -1, transform.localScale.y);
+
+        transform.parent.localScale = new Vector2(player.movement.facing, transform.localScale.y);
 
         // Return to running / walking when animation complete
         animator.SetBool("sprinting", player.movement.sprinting);

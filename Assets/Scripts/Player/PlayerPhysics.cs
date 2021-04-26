@@ -13,10 +13,12 @@ public class PlayerPhysics : MonoBehaviour {
     public LayerMask groundLayer;
     public bool isTouchingGround;
     public Vector2 maxVelocity;
+    public Player player;
 
     // Use this for initialization
     void Start() {
         rigidBody = GetComponent<Rigidbody2D>();
+        player = GetComponent<Player>();
     }
 
     // FixedUpdate is called once per physics timestep

@@ -54,7 +54,6 @@ public class PlayerControls : MonoBehaviour {
 
     public void RollPressed() {
         player.movement.rolling = !player.movement.rolling;
-        Debug.Log("rolled!");
         player.animationControl.SetState("Rolled");
     }
 
