@@ -6,7 +6,6 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour {
     // Movement
     public float baseSpeed = 2f;
-    public float maxSpeed = 15f;
     public float sprintMult = 2f;
     private bool sprinting = true;
     public int jumps, numJumps = 2;
@@ -29,6 +28,10 @@ public class PlayerMovement : MonoBehaviour {
     public float groundCheckRadius = 0.15f;
     public LayerMask groundLayer;
     public bool isTouchingGround;
+    public Vector2 velocity;
+    public Vector2 maxVelocity;
+    public Vector2 gravity = new Vector2(0, 9.81f);
+
 
     // Use this for initialization
     void Start() {
@@ -37,6 +40,7 @@ public class PlayerMovement : MonoBehaviour {
         jumpAction.Enable();
         toggleWalkAction.performed += ctx => ToggleWalk();
         toggleWalkAction.Enable();
+        rollAction.performed += ctx => RollPressed();
         rigidBody = GetComponent<Rigidbody2D>();
         animator = GetComponentInChildren<Animator>();
     }
@@ -44,18 +48,24 @@ public class PlayerMovement : MonoBehaviour {
     // FixedUpdate is called once per physics timestep
     void FixedUpdate() {
         isTouchingGround = Physics2D.OverlapCircle(groundCheckPoint.position, groundCheckRadius, groundLayer);
-
-        // set velocity due to movement and clamp value
-        if (MoveSpeed != 0) {
-            rigidBody.velocity += new Vector2(MoveSpeed * Time.fixedDeltaTime, 0);
-            if (rigidBody.velocity.x > maxSpeed) {
-                rigidBody.velocity = new Vector2(maxSpeed, rigidBody.velocity.y);
-            }
-        }
-
         if (isTouchingGround) {
             jumps = 0;
         }
+
+
+        // change velocity due to acceleration and clamp value
+        this.velocity += new Vector2(MoveSpeed * Time.fixedDeltaTime, 0);
+        this.velocity += gravity * Time.fixedDeltaTime;
+        this.velocity = ClampAbsVector(this.velocity, maxVelocity);
+
+        rigidBody.velocity = this.velocity;
+    }
+
+    // Clamps the abs input to bounds
+    Vector2 ClampAbsVector(Vector2 input, Vector2 bounds) {
+        float clampedX = Mathf.Abs(input.x) > bounds.x ? Mathf.Sign(input.x) * bounds.x : input.x;
+        float clampedY = Mathf.Abs(input.y) > bounds.y ? Mathf.Sign(input.y) * bounds.y : input.y;
+        return new Vector2(clampedX, clampedY);
     }
 
     // Update is called once per frame
@@ -96,12 +106,21 @@ public class PlayerMovement : MonoBehaviour {
 
     // Jump Action callback
     public void JumpPressed() {
+        // If not touching ground while jumping for the first time, lose your ground jump
+        if (jumps == 0 && !isTouchingGround) {
+            jumps = 1;
+        }
+
         // Make the character jump if they have the jumps required
         if (jumps < numJumps - 1) {
-            rigidBody.velocity = new Vector2(rigidBody.velocity.x, jumpSpeed);
+            this.velocity = new Vector2(this.velocity.x, jumpSpeed);
             jumps++;
             SetState("Jumped");
         }
+    }
+
+    public void RollPressed() {
+
     }
 
     // Acceleration due to user input

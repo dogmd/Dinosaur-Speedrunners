@@ -462,6 +462,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 1492961640}
     m_Modifications:
     - target: {fileID: 2237013399531452141, guid: 586009cf7e395bb449eb8a80c073209d, type: 3}
+      propertyPath: maxSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2237013399531452141, guid: 586009cf7e395bb449eb8a80c073209d, type: 3}
+      propertyPath: rollAction.m_Id
+      value: 804c22c9-4c2a-4524-9770-ea47c531b94b
+      objectReference: {fileID: 0}
+    - target: {fileID: 2237013399531452141, guid: 586009cf7e395bb449eb8a80c073209d, type: 3}
       propertyPath: groundCheckPoint
       value: 
       objectReference: {fileID: 1368325005}
@@ -472,6 +480,10 @@ PrefabInstance:
     - target: {fileID: 2237013399531452141, guid: 586009cf7e395bb449eb8a80c073209d, type: 3}
       propertyPath: jumpAction.m_Type
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2237013399531452141, guid: 586009cf7e395bb449eb8a80c073209d, type: 3}
+      propertyPath: rollAction.m_Name
+      value: Roll
       objectReference: {fileID: 0}
     - target: {fileID: 2237013399531452141, guid: 586009cf7e395bb449eb8a80c073209d, type: 3}
       propertyPath: groundLayer.m_Bits

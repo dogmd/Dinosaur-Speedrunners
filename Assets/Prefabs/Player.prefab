@@ -237,7 +237,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseSpeed: 2.2
-  maxSpeed: 5
   sprintMult: 2
   jumps: 0
   numJumps: 2
@@ -323,11 +322,11 @@ MonoBehaviour:
       m_Groups: 
       m_Action: Toggle Walk
       m_Flags: 0
-  dashAction:
-    m_Name: Dash
+  rollAction:
+    m_Name: Roll
     m_Type: 0
     m_ExpectedControlType: 
-    m_Id: d68ce4c4-5924-43e6-8276-bb4d87fe6500
+    m_Id: ef786f6b-b7be-4742-a7db-9c87600994d0
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings: []
@@ -337,6 +336,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   isTouchingGround: 0
+  velocity: {x: 0, y: 0}
+  maxVelocity: {x: 10, y: 10}
 --- !u!50 &4829330716434780057
 Rigidbody2D:
   serializedVersion: 4
