@@ -25,7 +25,6 @@ public class PlayerPhysics : MonoBehaviour {
 
         // change velocity due to acceleration and clamp value
         rigidBody.velocity = ClampAbsVector(rigidBody.velocity, maxVelocity);
-        Debug.Log(rigidBody.velocity);
     }
 
     // Clamps the abs input to bounds

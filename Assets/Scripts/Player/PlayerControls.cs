@@ -22,6 +22,7 @@ public class PlayerControls : MonoBehaviour {
         toggleWalkAction.performed += ctx => ToggleWalk();
         toggleWalkAction.Enable();
         rollAction.performed += ctx => RollPressed();
+        rollAction.Enable();
     }
 
     // Walk
@@ -32,11 +33,7 @@ public class PlayerControls : MonoBehaviour {
     // ToggleWalk Action callback
     public void ToggleWalk() {
         player.movement.sprinting = !player.movement.sprinting;
-        if (player.movement.sprinting) {
-            player.animationControl.SetState("Running");
-        } else {
-            player.animationControl.SetState("Walking");
-        }
+        player.animationControl.SetState(player.movement.GetWalkingState());
     }
 
     // Jump Action callback
@@ -57,6 +54,7 @@ public class PlayerControls : MonoBehaviour {
 
     public void RollPressed() {
         player.movement.rolling = !player.movement.rolling;
+        Debug.Log("rolled!");
         player.animationControl.SetState("Rolled");
     }
 

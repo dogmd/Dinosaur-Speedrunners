@@ -501,6 +501,10 @@ PrefabInstance:
       propertyPath: moveAction.m_ExpectedControlType
       value: Vector2
       objectReference: {fileID: 0}
+    - target: {fileID: 4165804638579347124, guid: 586009cf7e395bb449eb8a80c073209d, type: 3}
+      propertyPath: animationControl
+      value: 
+      objectReference: {fileID: 1820162460}
     - target: {fileID: 4829330716434780057, guid: 586009cf7e395bb449eb8a80c073209d, type: 3}
       propertyPath: m_Material
       value: 
@@ -1313,6 +1317,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1820162460 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4361782651539730775, guid: 586009cf7e395bb449eb8a80c073209d, type: 3}
+  m_PrefabInstance: {fileID: 1531964034}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb61e741f2ab54f4cb7c6f3586f67e86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1842958695
 GameObject:
   m_ObjectHideFlags: 0

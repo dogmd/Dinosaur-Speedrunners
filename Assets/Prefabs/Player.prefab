@@ -204,6 +204,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 7610663315395786399}
   player: {fileID: 4165804638579347124}
+  returnState: 
 --- !u!1 &9052576141598823502
 GameObject:
   m_ObjectHideFlags: 0
@@ -385,8 +386,8 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings:
     - m_Name: 
-      m_Id: 1437274a-8e8c-4ab6-9d51-63166b5712a8
-      m_Path: <Keyboard>/shift
+      m_Id: 82566cab-1780-46e1-ab97-0b4c58f286c4
+      m_Path: <Keyboard>/e
       m_Interactions: 
       m_Processors: 
       m_Groups: 

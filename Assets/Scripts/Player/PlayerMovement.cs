@@ -30,4 +30,8 @@ public class PlayerMovement : MonoBehaviour {
             return baseSpeed * player.controls.XInput * (sprinting ? sprintMult : 1);
         }
     }
+    
+    public string GetWalkingState() {
+        return sprinting ? "Running" : "Walking";
+    }
 }
