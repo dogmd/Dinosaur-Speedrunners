@@ -26,7 +26,7 @@ public class PlayerControls : MonoBehaviour {
 
     // Walk
     void Update() {
-        player.physics.ApplyAcceleration(new Vector2(player.movement.MoveSpeed * Time.fixedTime, 0));
+        player.physics.ApplyAcceleration(new Vector2(player.movement.MoveSpeed * Time.fixedDeltaTime, 0));
     }
 
     // ToggleWalk Action callback
