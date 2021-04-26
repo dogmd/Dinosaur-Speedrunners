@@ -466,6 +466,10 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2237013399531452141, guid: 586009cf7e395bb449eb8a80c073209d, type: 3}
+      propertyPath: maxVelocity.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2237013399531452141, guid: 586009cf7e395bb449eb8a80c073209d, type: 3}
       propertyPath: rollAction.m_Id
       value: 804c22c9-4c2a-4524-9770-ea47c531b94b
       objectReference: {fileID: 0}
