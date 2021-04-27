@@ -24,7 +24,14 @@ public class PlayerMovement : MonoBehaviour {
             jumps = 0;
         }
 
+        //Determine direction of flip
         float determiner = MoveSpeed != 0 ? MoveSpeed : player.physics.velocity.x;
+
+        if (determiner == 0)
+        {
+            determiner = facing;
+        }
+
         facing = determiner > 0 ? 1 : -1;
     }
 

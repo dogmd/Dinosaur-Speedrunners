@@ -23,6 +23,7 @@ public class PlayerControls : MonoBehaviour {
         toggleWalkAction.Enable();
         rollAction.performed += ctx => RollPressed();
         rollAction.Enable();
+
     }
 
     // Walk
@@ -56,6 +57,7 @@ public class PlayerControls : MonoBehaviour {
         player.movement.rolling = !player.movement.rolling;
         player.animationControl.SetState("Rolled");
     }
+
 
     // Acceleration due to user input
     public float XInput {

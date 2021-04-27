@@ -263,6 +263,7 @@ MonoBehaviour:
   jumps: 0
   numJumps: 2
   jumpSpeed: 5.5
+  facing: 1
 --- !u!50 &4829330716434780057
 Rigidbody2D:
   serializedVersion: 4
@@ -412,6 +413,7 @@ MonoBehaviour:
     m_Bits: 64
   isTouchingGround: 0
   maxVelocity: {x: 10, y: 10}
+  player: {fileID: 0}
 --- !u!114 &4165804638579347124
 MonoBehaviour:
   m_ObjectHideFlags: 0
