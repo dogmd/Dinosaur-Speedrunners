@@ -194,6 +194,7 @@ Tilemap:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 118616138}
   m_Enabled: 1
+<<<<<<< Updated upstream
   m_Tiles: {}
   m_AnimatedTiles: {}
   m_TileAssetArray: []
@@ -224,6 +225,41 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+=======
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 9d88b483ee1a2cb46b79b80b52dcf67a, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_GeometryType: 0
+  m_GenerationType: 0
+  m_EdgeRadius: 0
+  m_ColliderPaths: []
+  m_CompositePaths:
+    m_Paths: []
+  m_VertexDistance: 0.0005
+  m_OffsetDistance: 0.00005
+--- !u!95 &170516964
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 170516956}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ab40f98ef10d43f499bde34a5c1d7dc1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+>>>>>>> Stashed changes
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -644,6 +680,126 @@ Transform:
   m_Father: {fileID: 113621504}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< Updated upstream
+=======
+--- !u!1001 &1531964034
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1492961640}
+    m_Modifications:
+    - target: {fileID: 2237013399531452141, guid: 586009cf7e395bb449eb8a80c073209d, type: 3}
+      propertyPath: maxSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2237013399531452141, guid: 586009cf7e395bb449eb8a80c073209d, type: 3}
+      propertyPath: sprinting
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2237013399531452141, guid: 586009cf7e395bb449eb8a80c073209d, type: 3}
+      propertyPath: maxVelocity.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2237013399531452141, guid: 586009cf7e395bb449eb8a80c073209d, type: 3}
+      propertyPath: rollAction.m_Id
+      value: 804c22c9-4c2a-4524-9770-ea47c531b94b
+      objectReference: {fileID: 0}
+    - target: {fileID: 2237013399531452141, guid: 586009cf7e395bb449eb8a80c073209d, type: 3}
+      propertyPath: groundCheckPoint
+      value: 
+      objectReference: {fileID: 1368325005}
+    - target: {fileID: 2237013399531452141, guid: 586009cf7e395bb449eb8a80c073209d, type: 3}
+      propertyPath: groundCheckRadius
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2237013399531452141, guid: 586009cf7e395bb449eb8a80c073209d, type: 3}
+      propertyPath: jumpAction.m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2237013399531452141, guid: 586009cf7e395bb449eb8a80c073209d, type: 3}
+      propertyPath: rollAction.m_Name
+      value: Roll
+      objectReference: {fileID: 0}
+    - target: {fileID: 2237013399531452141, guid: 586009cf7e395bb449eb8a80c073209d, type: 3}
+      propertyPath: groundLayer.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 2237013399531452141, guid: 586009cf7e395bb449eb8a80c073209d, type: 3}
+      propertyPath: jumpAction.m_ExpectedControlType
+      value: Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 2237013399531452141, guid: 586009cf7e395bb449eb8a80c073209d, type: 3}
+      propertyPath: moveAction.m_ExpectedControlType
+      value: Vector2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4165804638579347124, guid: 586009cf7e395bb449eb8a80c073209d, type: 3}
+      propertyPath: animationControl
+      value: 
+      objectReference: {fileID: 1820162460}
+    - target: {fileID: 4829330716434780057, guid: 586009cf7e395bb449eb8a80c073209d, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4829330716434780057, guid: 586009cf7e395bb449eb8a80c073209d, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5765345014127827130, guid: 586009cf7e395bb449eb8a80c073209d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8663201282517144997, guid: 586009cf7e395bb449eb8a80c073209d, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8663201282517144997, guid: 586009cf7e395bb449eb8a80c073209d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.251
+      objectReference: {fileID: 0}
+    - target: {fileID: 8663201282517144997, guid: 586009cf7e395bb449eb8a80c073209d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.205
+      objectReference: {fileID: 0}
+    - target: {fileID: 8663201282517144997, guid: 586009cf7e395bb449eb8a80c073209d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8663201282517144997, guid: 586009cf7e395bb449eb8a80c073209d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8663201282517144997, guid: 586009cf7e395bb449eb8a80c073209d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8663201282517144997, guid: 586009cf7e395bb449eb8a80c073209d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8663201282517144997, guid: 586009cf7e395bb449eb8a80c073209d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8663201282517144997, guid: 586009cf7e395bb449eb8a80c073209d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8663201282517144997, guid: 586009cf7e395bb449eb8a80c073209d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8663201282517144997, guid: 586009cf7e395bb449eb8a80c073209d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9052576141598823502, guid: 586009cf7e395bb449eb8a80c073209d, type: 3}
+      propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 586009cf7e395bb449eb8a80c073209d, type: 3}
+>>>>>>> Stashed changes
 --- !u!1 &1550388802
 GameObject:
   m_ObjectHideFlags: 0
