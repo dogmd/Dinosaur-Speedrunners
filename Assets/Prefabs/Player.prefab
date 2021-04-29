@@ -98,7 +98,6 @@ GameObject:
   - component: {fileID: 7827225876633192393}
   - component: {fileID: 3982526044422327596}
   - component: {fileID: 7610663315395786399}
-  - component: {fileID: 4361782651539730775}
   m_Layer: 0
   m_Name: Player Display
   m_TagString: Untagged
@@ -190,21 +189,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &4361782651539730775
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4939571070621530377}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb61e741f2ab54f4cb7c6f3586f67e86, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 7610663315395786399}
-  player: {fileID: 4165804638579347124}
-  returnState: 
 --- !u!1 &9052576141598823502
 GameObject:
   m_ObjectHideFlags: 0
@@ -219,6 +203,7 @@ GameObject:
   - component: {fileID: 5229075421026460176}
   - component: {fileID: 4251409270892811367}
   - component: {fileID: 4165804638579347124}
+  - component: {fileID: 424115781059192934}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -255,14 +240,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd7d1b2c4c016414d96d919b026860f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  baseSpeed: 2.2
+  player: {fileID: 4165804638579347124}
+  baseSpeed: 8
   sprintMult: 2
+  rollSpeed: 7
   sprinting: 1
   rolling: 0
+  jumping: 0
   jumps: 0
-  numJumps: 2
-  jumpSpeed: 5.5
+  maxJumps: 2
+  rolls: 0
+  maxRolls: 2
+  jumpHeight: 2
+  jumpForce: 0
+  noJumpHoldForce: {x: 0, y: -10}
   facing: 1
 --- !u!50 &4829330716434780057
 Rigidbody2D:
@@ -348,7 +339,7 @@ MonoBehaviour:
       m_Flags: 8
   jumpAction:
     m_Name: Jump
-    m_Type: 1
+    m_Type: 0
     m_ExpectedControlType: Button
     m_Id: e37c7ae8-bac4-4497-88d2-b436f8925153
     m_Processors: 
@@ -357,7 +348,7 @@ MonoBehaviour:
     - m_Name: 
       m_Id: 615a7ae7-f605-4404-84bd-f1311d5b57b2
       m_Path: <Keyboard>/space
-      m_Interactions: 
+      m_Interactions: Press(behavior=2)
       m_Processors: 
       m_Groups: 
       m_Action: Jump
@@ -394,6 +385,7 @@ MonoBehaviour:
       m_Groups: 
       m_Action: Roll
       m_Flags: 0
+  jumpHeld: 0
 --- !u!114 &4251409270892811367
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -406,14 +398,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4a677a58321ff34096450866554669a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rigidBody: {fileID: 0}
   groundCheckPoint: {fileID: 5765345014127827130}
   groundCheckRadius: 0.15
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
   isTouchingGround: 0
+  falling: 0
   maxVelocity: {x: 10, y: 10}
-  player: {fileID: 0}
+  player: {fileID: 4165804638579347124}
 --- !u!114 &4165804638579347124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -429,4 +423,23 @@ MonoBehaviour:
   movement: {fileID: 2237013399531452141}
   controls: {fileID: 5229075421026460176}
   physics: {fileID: 4251409270892811367}
-  animationControl: {fileID: 4361782651539730775}
+  animator: {fileID: 424115781059192934}
+--- !u!114 &424115781059192934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9052576141598823502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dd00e578851a8f4bb33975c1f31fe51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 7610663315395786399}
+  player: {fileID: 4165804638579347124}
+  sprinting: 0
+  isTouchingGround: 0
+  falling: 0
+  velX: 0
+  velY: 0
