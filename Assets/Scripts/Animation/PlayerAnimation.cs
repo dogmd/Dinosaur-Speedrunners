@@ -27,6 +27,19 @@ public class PlayerAnimation : MonoBehaviour {
         // Flip character based on velocity / input
         transform.localScale = new Vector2(player.movement.facing, transform.localScale.y);
 
+        // Set animator's physics class variables
+        velX = player.physics.velocity.x;
+        velY = player.physics.velocity.y;
+        isTouchingGround = player.physics.isTouchingGround;
+        falling = player.physics.falling;
+
+        // Set animator's movement class variables
+        sprinting = player.movement.sprinting;
+        sliding = Mathf.Abs(player.physics.velocity.x) > 0.001f
+        && Mathf.Abs(player.controls.XInput) <= 0.01f
+        && !player.movement.jumping
+        && player.physics.isTouchingGround;
+
         animator.SetBool("sprinting", sprinting);
         animator.SetBool("isTouchingGround", isTouchingGround);
         animator.SetBool("falling", falling);

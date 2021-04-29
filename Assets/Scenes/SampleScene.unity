@@ -250,7 +250,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.4489999, y: -0.9299998, z: -10}
+  m_LocalPosition: {x: 5.1499996, y: 0.45000005, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -429,33 +429,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1492961640}
     m_Modifications:
-    - target: {fileID: 736280957325604789, guid: 586009cf7e395bb449eb8a80c073209d, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2487975412422135838, guid: 586009cf7e395bb449eb8a80c073209d, type: 3}
-      propertyPath: groundLayer.m_Bits
-      value: 64
-      objectReference: {fileID: 0}
-    - target: {fileID: 4829330716434780057, guid: 586009cf7e395bb449eb8a80c073209d, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5110530586273956964, guid: 586009cf7e395bb449eb8a80c073209d, type: 3}
-      propertyPath: m_Radius
-      value: 0.15
-      objectReference: {fileID: 0}
     - target: {fileID: 8663201282517144997, guid: 586009cf7e395bb449eb8a80c073209d, type: 3}
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8663201282517144997, guid: 586009cf7e395bb449eb8a80c073209d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.251
+      value: -1.55
       objectReference: {fileID: 0}
     - target: {fileID: 8663201282517144997, guid: 586009cf7e395bb449eb8a80c073209d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.15
+      value: 3.53
       objectReference: {fileID: 0}
     - target: {fileID: 8663201282517144997, guid: 586009cf7e395bb449eb8a80c073209d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -493,8 +477,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 736280957325604789, guid: 586009cf7e395bb449eb8a80c073209d, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 586009cf7e395bb449eb8a80c073209d, type: 3}
 --- !u!1 &1550388802
 GameObject:

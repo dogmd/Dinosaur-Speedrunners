@@ -8,26 +8,22 @@ using UnityEngine.InputSystem;
 // Handles acceleration and any other physics that might come up from player interation
 public class PlayerPhysics : MonoBehaviour {
     public Rigidbody2D rigidBody;
-    public Transform groundCheckPoint;
-    public float groundCheckRadius = 0.15f;
     public bool isTouchingGround, falling;
     public Vector2 maxVelocity;
     public Player player;
     public PlayerGroundHandler groundHandler;
-    public BoxCollider2D hitbox;
+    public CapsuleCollider2D hitbox;
 
     // Use this for initialization
     void Start() {
         rigidBody = GetComponent<Rigidbody2D>();
         player = GetComponent<Player>();
-        hitbox = GetComponent<BoxCollider2D>();
+        hitbox = GetComponent<CapsuleCollider2D>();
         groundHandler = GetComponentInChildren<PlayerGroundHandler>();
     }
 
     // FixedUpdate is called once per physics timestep
     void FixedUpdate() {
-        isTouchingGround = Physics2D.OverlapCircle(groundCheckPoint.position, groundCheckRadius, groundHandler.ground);
-
         if (velocity.y <= 0 && !isTouchingGround) {
             falling = true;
         } else if (falling && isTouchingGround) {
@@ -38,10 +34,6 @@ public class PlayerPhysics : MonoBehaviour {
 
         // change velocity due to acceleration and clamp value
         velocity = ClampAbsVector(rigidBody.velocity, maxVelocity);
-    }
-
-    void Update() {
-        SetAnimationParams();
     }
 
     // Clamps the abs input to bounds
@@ -57,14 +49,6 @@ public class PlayerPhysics : MonoBehaviour {
 
     public float CalcJumpForce(float jumpHeight) {
         return Mathf.Sqrt(2 * Mathf.Abs(Physics.gravity.y) * rigidBody.gravityScale * jumpHeight);
-    }
-
-    // Sets the movement related animation parameters currently applicable
-    public void SetAnimationParams() {
-        player.animator.velX = velocity.x;
-        player.animator.velY = velocity.y;
-        player.animator.isTouchingGround = isTouchingGround;
-        player.animator.falling = falling;
     }
 
     public Vector2 velocity {

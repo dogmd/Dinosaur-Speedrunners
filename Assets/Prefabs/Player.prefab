@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5765345014127827130}
   - component: {fileID: 4544280185419362587}
-  - component: {fileID: 736280957325604789}
   m_Layer: 0
   m_Name: Ground Check Point
   m_TagString: Untagged
@@ -44,27 +43,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f59a11085ca76a428253709159d77d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lastGroundNormal: {x: 0.0000038146925, y: 1}
+  avgGroundNormal: {x: 0, y: 0}
   groundDirection: {x: 0.99999994, y: -0.000003874297}
   ground:
     serializedVersion: 2
     m_Bits: 64
---- !u!70 &736280957325604789
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1935171448284861902}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.25, y: 0.05}
-  m_Direction: 1
+  groundCheckRadius: 0.15
+  rayCount: 6
+  lastCalcPos: {x: 0, y: 0}
 --- !u!1 &4939571070621530377
 GameObject:
   m_ObjectHideFlags: 0
@@ -183,6 +169,7 @@ GameObject:
   - component: {fileID: 424115781059192934}
   - component: {fileID: 455522809143138280}
   - component: {fileID: 2487975412422135838}
+  - component: {fileID: 7451018234611060729}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -245,7 +232,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 1
-  m_Mass: 0.13988659
+  m_Mass: 0.12837082
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 1
@@ -407,7 +394,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9052576141598823502}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -439,11 +426,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigidBody: {fileID: 4829330716434780057}
-  groundCheckPoint: {fileID: 5765345014127827130}
-  groundCheckRadius: 0.15
   isTouchingGround: 1
   falling: 0
   maxVelocity: {x: 3.89, y: 10}
   player: {fileID: 4165804638579347124}
   groundHandler: {fileID: 4544280185419362587}
   hitbox: {fileID: 455522809143138280}
+--- !u!70 &7451018234611060729
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9052576141598823502}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.00039291382, y: -0.00039303303}
+  m_Size: {x: 0.23200035, y: 0.60310936}
+  m_Direction: 0

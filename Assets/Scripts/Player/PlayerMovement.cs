@@ -23,20 +23,16 @@ public class PlayerMovement : MonoBehaviour {
         jumpForce = player.physics.CalcJumpForce(jumpHeight);
     }
 
-    // Update is called once per frame
     void Update() {
-        SetAnimationParams();
+        // Rotate to accomodate slopes
+        PlayerGroundHandler gh = player.physics.groundHandler;
+        transform.up = gh.avgGroundNormal;
     }
 
     void FixedUpdate() {
         Rigidbody2D rb = player.physics.rigidBody;
         // Add speed due to wasd
-        if (player.physics.isTouchingGround) {
-            rb.AddForce(player.physics.groundHandler.groundDirection * MoveSpeed * rb.mass);
-        } else {
-            rb.AddForce(new Vector2(MoveSpeed * rb.mass, 0));
-        }
-        //player.physics.velocity += new Vector2(MoveSpeed * Time.fixedDeltaTime, 0);
+        rb.AddRelativeForce(new Vector2(MoveSpeed * rb.mass, 0));
 
         // Reset jumps and rolls
         if (player.physics.isTouchingGround) {
@@ -75,7 +71,11 @@ public class PlayerMovement : MonoBehaviour {
 
     // Called every physics timestep while rolling
     public void DoRoll() {
-        player.physics.velocity = RollVelocity;
+        if (player.physics.isTouchingGround) {
+            player.physics.velocity = RollSpeed * player.physics.groundHandler.groundDirection;
+        } else {
+            player.physics.velocity = RollSpeed * Vector2.right;
+        }
     }
 
     public void TryJump() {
@@ -96,15 +96,6 @@ public class PlayerMovement : MonoBehaviour {
             jumps++;
         }
     }
-    
-    // Sets the movement related animation parameters currently applicable
-    public void SetAnimationParams() {
-        player.animator.sprinting = sprinting;
-        player.animator.sliding = Mathf.Abs(player.physics.velocity.x) > 0.001f 
-        && Mathf.Abs(player.controls.XInput) <= 0.01f
-        && !jumping
-        && player.physics.isTouchingGround;
-    }
 
     // Acceleration due to user input
     public float MoveSpeed {
@@ -113,9 +104,9 @@ public class PlayerMovement : MonoBehaviour {
         }
     }
 
-    public Vector2 RollVelocity {
+    public float RollSpeed {
         get {
-            return new Vector2(rollSpeed * facing, 0);
+            return rollSpeed * facing;
         }
     }
 
