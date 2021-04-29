@@ -10,20 +10,24 @@ public class PlayerPhysics : MonoBehaviour {
     public Rigidbody2D rigidBody;
     public Transform groundCheckPoint;
     public float groundCheckRadius = 0.15f;
-    public LayerMask groundLayer;
     public bool isTouchingGround, falling;
     public Vector2 maxVelocity;
     public Player player;
+    public PlayerGroundHandler groundHandler;
+    public BoxCollider2D hitbox;
 
     // Use this for initialization
     void Start() {
         rigidBody = GetComponent<Rigidbody2D>();
         player = GetComponent<Player>();
+        hitbox = GetComponent<BoxCollider2D>();
+        groundHandler = GetComponentInChildren<PlayerGroundHandler>();
     }
 
     // FixedUpdate is called once per physics timestep
     void FixedUpdate() {
-        isTouchingGround = Physics2D.OverlapCircle(groundCheckPoint.position, groundCheckRadius, groundLayer);
+        isTouchingGround = Physics2D.OverlapCircle(groundCheckPoint.position, groundCheckRadius, groundHandler.ground);
+
         if (velocity.y <= 0 && !isTouchingGround) {
             falling = true;
         } else if (falling && isTouchingGround) {
@@ -33,7 +37,7 @@ public class PlayerPhysics : MonoBehaviour {
         }
 
         // change velocity due to acceleration and clamp value
-        rigidBody.velocity = ClampAbsVector(rigidBody.velocity, maxVelocity);
+        velocity = ClampAbsVector(rigidBody.velocity, maxVelocity);
     }
 
     void Update() {

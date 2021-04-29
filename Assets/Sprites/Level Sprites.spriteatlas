@@ -32,7 +32,7 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 2800000, guid: f0282e247b2ca204f90d38328e2f299d, type: 3}
-    totalSpriteSurfaceArea: 457984
+    totalSpriteSurfaceArea: 462218
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
@@ -427,6 +427,7 @@ SpriteAtlas:
   - {fileID: 8700199642581701930, guid: f0282e247b2ca204f90d38328e2f299d, type: 3}
   - {fileID: -8611141793321497699, guid: f0282e247b2ca204f90d38328e2f299d, type: 3}
   - {fileID: -5191959529849192131, guid: f0282e247b2ca204f90d38328e2f299d, type: 3}
+  - {fileID: -5580191166296064157, guid: f0282e247b2ca204f90d38328e2f299d, type: 3}
   - {fileID: 2051640475655427888, guid: f0282e247b2ca204f90d38328e2f299d, type: 3}
   - {fileID: 3458084729717697869, guid: f0282e247b2ca204f90d38328e2f299d, type: 3}
   - {fileID: -6379955759623781213, guid: f0282e247b2ca204f90d38328e2f299d, type: 3}
@@ -2217,6 +2218,7 @@ SpriteAtlas:
   - main_lev_build 1_1691
   - main_lev_build 1_1715
   - main_lev_build 1_1709
+  - main_lev_build 1_1789
   - main_lev_build 1_1622
   - main_lev_build 1_1642
   - main_lev_build 1_576

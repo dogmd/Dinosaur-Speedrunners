@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(Player))]
 public class PlayerMovement : MonoBehaviour {
     public Player player;
-    public float baseSpeed = 2f;
+    public float baseAcceleration = 2f;
     public float sprintMult = 2f;
     public float rollSpeed = 7f;
     public bool sprinting = true, rolling, jumping;
@@ -25,28 +25,36 @@ public class PlayerMovement : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        // Movement due to user input
-        player.physics.ApplyAcceleration(new Vector2(MoveSpeed * Time.deltaTime, 0));
+        SetAnimationParams();
+    }
 
+    void FixedUpdate() {
+        Rigidbody2D rb = player.physics.rigidBody;
+        // Add speed due to wasd
+        if (player.physics.isTouchingGround) {
+            rb.AddForce(player.physics.groundHandler.groundDirection * MoveSpeed * rb.mass);
+        } else {
+            rb.AddForce(new Vector2(MoveSpeed * rb.mass, 0));
+        }
+        //player.physics.velocity += new Vector2(MoveSpeed * Time.fixedDeltaTime, 0);
+
+        // Reset jumps and rolls
         if (player.physics.isTouchingGround) {
             jumps = 0;
             rolls = 0;
+        }
+
+        // Handle held jump going higher
+        if (jumping) {
+            if (!player.controls.jumpHeld && player.physics.velocity.y > 0) {
+                rb.AddForce(noJumpHoldForce * rb.mass);
+            }
         }
 
         if (!rolling) {
             SetFacing();
         } else {
             DoRoll();
-        }
-
-        SetAnimationParams();
-    }
-
-    void FixedUpdate() {
-        if (jumping) {
-            if (!player.controls.jumpHeld && player.physics.velocity.y > 0) {
-                player.physics.rigidBody.AddForce(noJumpHoldForce * player.physics.rigidBody.mass);
-            }
         }
     }
 
@@ -55,6 +63,7 @@ public class PlayerMovement : MonoBehaviour {
         facing = (int)Mathf.Sign(determiner);
     }
 
+    // Attempts to roll
     public void TryRoll() {
         if (rolls < maxRolls) {
             rolling = true;
@@ -64,6 +73,7 @@ public class PlayerMovement : MonoBehaviour {
         }
     }
 
+    // Called every physics timestep while rolling
     public void DoRoll() {
         player.physics.velocity = RollVelocity;
     }
@@ -90,8 +100,8 @@ public class PlayerMovement : MonoBehaviour {
     // Sets the movement related animation parameters currently applicable
     public void SetAnimationParams() {
         player.animator.sprinting = sprinting;
-        player.animator.sliding = Mathf.Abs(player.physics.velocity.x) > 0 
-        && Mathf.Abs(player.controls.XInput) <= 0.01 
+        player.animator.sliding = Mathf.Abs(player.physics.velocity.x) > 0.001f 
+        && Mathf.Abs(player.controls.XInput) <= 0.01f
         && !jumping
         && player.physics.isTouchingGround;
     }
@@ -99,13 +109,20 @@ public class PlayerMovement : MonoBehaviour {
     // Acceleration due to user input
     public float MoveSpeed {
         get {
-            return baseSpeed * player.controls.XInput * (sprinting ? sprintMult : 1);
+            return baseAcceleration * player.controls.XInput * SprintMult;
         }
     }
 
     public Vector2 RollVelocity {
         get {
             return new Vector2(rollSpeed * facing, 0);
+        }
+    }
+
+    // Returns speed multiplier due to sprint for current state
+    public float SprintMult {
+        get {
+            return (sprinting ? sprintMult : 1);
         }
     }
 }
