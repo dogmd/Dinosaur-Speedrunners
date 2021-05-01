@@ -85,4 +85,9 @@ public class PlayerAnimation : MonoBehaviour {
             SetState("Landing");
         }
     }
+
+    public void Attacking()
+    {
+        
+    }
 }

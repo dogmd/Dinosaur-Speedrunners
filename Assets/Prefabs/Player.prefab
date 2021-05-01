@@ -99,6 +99,7 @@ GameObject:
   - component: {fileID: 3982526044422327596}
   - component: {fileID: 7610663315395786399}
   - component: {fileID: 4361782651539730775}
+  - component: {fileID: 6873782076460489311}
   m_Layer: 0
   m_Name: Player Display
   m_TagString: Untagged
@@ -205,6 +206,19 @@ MonoBehaviour:
   animator: {fileID: 7610663315395786399}
   player: {fileID: 4165804638579347124}
   returnState: 
+  falling: 0
+--- !u!114 &6873782076460489311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4939571070621530377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 579d3a327c12a5241a2541c421da9fc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9052576141598823502
 GameObject:
   m_ObjectHideFlags: 0
