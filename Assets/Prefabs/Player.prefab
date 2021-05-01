@@ -167,7 +167,6 @@ GameObject:
   - component: {fileID: 5229075421026460176}
   - component: {fileID: 4165804638579347124}
   - component: {fileID: 424115781059192934}
-  - component: {fileID: 455522809143138280}
   - component: {fileID: 2487975412422135838}
   - component: {fileID: 7451018234611060729}
   m_Layer: 0
@@ -387,32 +386,6 @@ MonoBehaviour:
   sliding: 0
   velX: 0
   velY: 0
---- !u!61 &455522809143138280
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9052576141598823502}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.28, y: 0.96}
-    newSize: {x: 0.32, y: 0.32}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.23182684, y: 0.60340977}
-  m_EdgeRadius: 0
 --- !u!114 &2487975412422135838
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -431,7 +404,7 @@ MonoBehaviour:
   maxVelocity: {x: 3.89, y: 10}
   player: {fileID: 4165804638579347124}
   groundHandler: {fileID: 4544280185419362587}
-  hitbox: {fileID: 455522809143138280}
+  hitbox: {fileID: 0}
 --- !u!70 &7451018234611060729
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

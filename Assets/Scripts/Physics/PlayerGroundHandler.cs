@@ -55,10 +55,12 @@ public class PlayerGroundHandler : MonoBehaviour {
                 avgGroundNormal += hit.normal;
                 pos += step;
 
-                // if (i != rayCount - 1) {
-                //     Debug.DrawLine(pos, pos - step, Color.cyan, 0.1f);
-                // }
-                // Debug.DrawRay(hit.point, hit.normal, player.physics.isTouchingGround ? Color.green : Color.blue);
+                if (UnityEditor.Selection.activeGameObject == this.gameObject) {
+                    if (i != rayCount - 1) {
+                        Debug.DrawLine(pos, pos - step, Color.cyan);
+                    }
+                    Debug.DrawRay(hit.point, hit.normal, player.physics.isTouchingGround ? Color.green : Color.blue);
+                }
             }
 
             // Average vectors
@@ -67,7 +69,9 @@ public class PlayerGroundHandler : MonoBehaviour {
             groundDirection = Quaternion.AngleAxis(90, Vector3.forward) * -this.avgGroundNormal;
             lastCalcPos = transform.parent.position;
 
-            // Debug.DrawRay((player.transform.position - player.transform.rotation * new Vector2(0, hitbox.size.y / 2)), this.avgGroundNormal, Color.red);
+            if (UnityEditor.Selection.activeGameObject == this.gameObject) {
+                Debug.DrawRay((player.transform.position - player.transform.rotation * new Vector2(0, hitbox.size.y / 2)), this.avgGroundNormal, Color.red);
+            }
         }
     }
 }
